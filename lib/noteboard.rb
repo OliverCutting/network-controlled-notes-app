@@ -20,6 +20,8 @@ class Noteboard
     @client.puts "delete a note"
     input = @client.gets.chomp
     case 
+    when input == "show notes"
+      @client.puts @notes
     when input == "add note"
       @client.puts "Please enter a note header"
       header = @client.gets.chomp
@@ -41,7 +43,4 @@ class Noteboard
   def delete_note(header)
     @notes.delete_if{|x| x.header = header}
   end
-
-
-
 end
